@@ -35,7 +35,10 @@ SECRET_KEY = config_secret_common["django"]["secret_key"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*.ngrok.io']
+ALLOWED_HOSTS = ['*.ngrok.io',
+                  'localhost',
+                 '127.0.0.1',
+                 ]
 
 
 # Application definition
@@ -49,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'blog',
+    'todo',
 ]
 
 MIDDLEWARE = [
