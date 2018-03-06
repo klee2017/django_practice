@@ -10,6 +10,7 @@ def lnglat_validator(value):
 
 
 class Post(models.Model):
+    author = models.CharField(max_length=20)
     title = models.CharField(max_length=100, help_text='please enter the post title. max length : 100 characters.')
     content = models.TextField()
     tags = models.CharField(max_length=100, blank=True)
