@@ -1,13 +1,20 @@
+import re
+
+from django.forms import ValidationError
 from django.db import models
+
+
+def lnglat_validator(value):
+    if not re.match(r'^([+-]?\d+\.?\d*),([+-]?\d+\.?\d*)$', value):
+        raise ValidationError('Invalid LngLat Type')
 
 
 class Post(models.Model):
     title = models.CharField(max_length=100, help_text='please enter the post title. max length : 100 characters.')
-                             # choices=(
-                             #     ('title1', 'title1 label'),
-                             #     ('title2', 'title2 label'),
-                             #     ('title3', 'title3 label'),
-                             # )
     content = models.TextField()
+    tags = models.CharField(max_length=100, blank=True)
+    lnglat = models.CharField(max_length=50, blank=True,
+                              validators=[lnglat_validator],
+                              help_text='longitude/latitude format insert')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
