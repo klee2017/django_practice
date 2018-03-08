@@ -11,6 +11,11 @@
     <h1>My Blog</h1>
     <p>Hello. This is My Blog.</p>
 
+    <form action="" method="get">
+        <input type="text" name="q" value="{{ q }}" />
+        <input type="submit" value="search" />
+    </form>
+
     <ul>
     {% for post in post_list %}
         <li>
