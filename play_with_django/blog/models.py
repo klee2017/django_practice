@@ -1,5 +1,6 @@
 import re
 
+from django.conf import settings
 from django.db import models
 from django.forms import ValidationError
 
@@ -16,7 +17,7 @@ class Post(models.Model):
         ('w', 'Withdrawn')
     )
 
-    author = models.CharField(max_length=20)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
     title = models.CharField(max_length=100, help_text='please enter the post title. max length : 100 characters.')
     content = models.TextField()
     tags = models.CharField(max_length=100, blank=True)
