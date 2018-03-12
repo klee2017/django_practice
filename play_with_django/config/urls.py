@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls')),
     url(r'^todo/', include('todo.urls')),
     url(r'^accounts/', include('accounts.urls')),
+    url(r'^shop/', include('shop.urls')),
 ]
 
 if settings.DEBUG:

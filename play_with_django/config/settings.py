@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'blog',
     'todo',
     'accounts',
+    'shop',
 
     'django_extensions',
     'debug_toolbar',
