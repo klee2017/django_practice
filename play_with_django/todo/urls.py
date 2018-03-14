@@ -1,7 +1,6 @@
 from django.conf.urls   import url
 
-from . import views_fbv
-from . import views_cbv
+from . import views_fbv, views_cbv, views
 
 urlpatterns = [
     url(r'^sum/(?P<numbers>[\d/]+)/$', views_fbv.mysum),
@@ -16,4 +15,6 @@ urlpatterns = [
     url(r'^cbv/list2/$', views_cbv.post_list2),
     url(r'^cbv/list3/$', views_cbv.post_list3),
     # url(r'^cbv/excel/$', views_cbv.excel_download),
+
+    url(r'^new/$', views.post_new),
 ]
