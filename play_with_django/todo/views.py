@@ -22,7 +22,8 @@ def post_new(request):
             # post = Post.objects.create(title=form.cleaned_data['title'], content=form.cleaned_data['content'])
 
             # 방법 4
-            post = Post.objects.create(**form.cleaned_data)
+            # post = Post.objects.create(**form.cleaned_data)
+            post = form.save()
             return redirect('/todo/')
     else:
         form = PostForm()
