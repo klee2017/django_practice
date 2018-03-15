@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 
 from .forms import PostForm
-from .models import Post
 
 
 def post_new(request):
@@ -23,7 +22,9 @@ def post_new(request):
 
             # 방법 4
             # post = Post.objects.create(**form.cleaned_data)
-            post = form.save()
+            post = form.save(commit=False)
+            post.ip = request.META['REMOTE_ADDR']
+            post.save()
             return redirect('/todo/')
     else:
         form = PostForm()
