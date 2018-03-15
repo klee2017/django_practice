@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 
-from .models import Post
 from .forms import PostForm
+from .models import Post
 
 
 def post_new(request):
@@ -45,5 +45,3 @@ def post_edit(request, id):
     else:
         form = PostForm(instance=post)
     return render(request, 'todo/post_form.html', {'form': form, })
-
-    pass

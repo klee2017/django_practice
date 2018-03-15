@@ -1,52 +1,58 @@
 {% extends "blog/layout.html" %}
 
 {% block content %}
-    <div class="container">
-        <div class="jumbotron">
-            <h1>My Blog <sup>by me</sup></h1>
-            <p>Hello. This is My Blog.</p>
-        </div>
+<div class="container">
+    <div class="jumbotron">
+        <h1>My Blog <sup>by me</sup></h1>
+        <p>Hello. This is My Blog.</p>
+    </div>
 
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="alert alert-info">
-                    <ul>
-                        <li>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-info">
+                <ul>
+                    <li>
                         One
-                        </li>
-                        <li>
+                    </li>
+                    <li>
                         Two
-                        </li>
-                    </ul>
-                </div>
-
-                <p>
-                    <form action="" method="get">
-                        <input type="text" name="q" value="{{ q }}" />
-                        <input type="submit" value="검색" class="btn btn-primary" />
-                    </form>
-                </p>
-                <table class="table table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th>id</th>
-                            <th>title</th>
-                            <th>author</th>
-                            <th>updated_at</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for post in post_list %}
-                            <tr>
-                                <td>{{ post.id }}</td>
-                                <td><a href='{% url "blog:post_detail" post.id %}'>{{ post.title }}</a></td>
-                                <td><small>by {{ post.author }}</small></td>
-                                <td><small>at {{ post.updated_at }}</small></td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                    </li>
+                </ul>
             </div>
+
+            <a href="{% url 'blog:post_new' %}" class="btn btn-primary pull-right">New Post</a>
+
+            <p>
+            <form action="" method="get">
+                <input type="text" name="q" value="{{ q }}"/>
+                <input type="submit" value="검색" class="btn btn-primary"/>
+            </form>
+            </p>
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>author</th>
+                    <th>updated_at</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for post in post_list %}
+                <tr>
+                    <td>{{ post.id }}</td>
+                    <td><a href='{% url "blog:post_detail" post.id %}'>{{ post.title }}</a></td>
+                    <td>
+                        <small>by {{ post.author }}</small>
+                    </td>
+                    <td>
+                        <small>at {{ post.updated_at }}</small>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
 {% endblock %}

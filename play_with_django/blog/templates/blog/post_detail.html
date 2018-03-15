@@ -27,7 +27,8 @@
                 </ul>
 
                 <hr/>
-                <a href='{% url "blog:post_list" %}' class="btn btn-primary">Post List</a>
+                <a href='{% url "blog:post_list" %}' class="btn btn-primary">List</a>
+                <a href='{% url "blog:post_edit" post.id %}' class="btn btn-default">Edit</a>
             </div>
         </div>
     </div>
