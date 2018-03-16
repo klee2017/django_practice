@@ -7,7 +7,8 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         # field = '__all__'
-        fields = ['title', 'content']
+        fields = ['title', 'content', 'user_agent']
+        widgets = {'user_agent': forms.HiddenInput, }
 
     # title = forms.CharField(validators=[min_length_3_validator])
     # content = forms.CharField(widget=forms.Textarea)
