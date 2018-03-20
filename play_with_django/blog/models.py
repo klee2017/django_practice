@@ -21,6 +21,7 @@ class Post(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     title = models.CharField(max_length=100, help_text='please enter the post title. max length : 100 characters.')
     content = models.TextField()
+    photo = models.ImageField(blank=True)
     tags = models.CharField(max_length=100, blank=True)
     lnglat = models.CharField(max_length=50, blank=True,
                               validators=[lnglat_validator],
