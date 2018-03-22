@@ -12,7 +12,7 @@
 
                 <!--{# <img src="/media/{{ post.photo }}" alt="" style="max-width: 100%;"> #} 참고-->
                 {% if post.photo %}
-                    <img src="{{ post.photo.url }}" alt="" style="max-width: 100%;">
+                    <img src="{{ post.photo_thumbnail.url }}" alt="" style="max-width: 100%;">
                 {% endif %}
 
                 {{ post.content|linebreaks }}
