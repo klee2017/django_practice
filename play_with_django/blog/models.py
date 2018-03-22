@@ -4,7 +4,7 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.forms import ValidationError
-from imagekit.models import ImageSpecField
+from imagekit.models import ProcessedImageField
 from imagekit.processors import Thumbnail
 
 
@@ -24,11 +24,10 @@ class Post(models.Model):
     title = models.CharField(max_length=100, help_text='please enter the post title. max length : 100 characters.')
     content = models.TextField()
 
-    photo = models.ImageField(blank=True, upload_to='blog/post/%Y/%m/%d')
-    photo_thumbnail = ImageSpecField(source='photo',
-                                     processors=[Thumbnail(300,300)],
-                                     format='JPEG',
-                                     options={'quality':60})
+    photo = ProcessedImageField(blank=True, upload_to='blog/post/%Y/%m/%d',
+                                processors=[Thumbnail(300, 300)],
+                                format='JPEG',
+                                options={'quality': 60})
 
     tags = models.CharField(max_length=100, blank=True)
     lnglat = models.CharField(max_length=50, blank=True,
