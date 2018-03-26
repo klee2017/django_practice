@@ -155,3 +155,5 @@ INTERNAL_IPS = ['127.0.0.1']
 
 MESSAGE_LEVEL = constants.DEBUG  # DEBUG LEVEL의 메세지 남길 수 있음
 MESSAGE_TAGS = {constants.ERROR: 'danger'}
+
+NAVER_CLIENT_ID = config_secret_common["naver"]["client_id"]
