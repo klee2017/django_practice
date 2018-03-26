@@ -1,6 +1,6 @@
 from django import forms
 
-from widgets.naver_map_point_widget import NaverMapPointWidget
+from config.widgets.naver_map_point_widget import NaverMapPointWidget
 from .models import Post
 
 
