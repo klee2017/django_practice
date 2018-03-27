@@ -1,23 +1,11 @@
-from django import forms
-from django.views.generic import CreateView, ListView, DetailView
+from django.views.generic import CreateView, ListView, DetailView, UpdateView
 
 from .models import Post
 
-
-class PostForm(forms.ModelForm):
-    class Meta:
-        model = Post
-        fields = '__all__'
-
-
-class PostCreateView(CreateView):
-    model = Post
-    form_class = PostForm
-    # success_url = '/...'
-
-
-post_new = PostCreateView.as_view()
+post_new = CreateView.as_view(model=Post)
 
 post_list = ListView.as_view(model=Post, paginate_by=20)
 
 post_detail = DetailView.as_view(model=Post)
+
+post_edit = UpdateView.as_view(model=Post, fields='__all__')

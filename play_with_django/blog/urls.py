@@ -12,4 +12,5 @@ urlpatterns = [
 
     url(r'^cbv/new/$', views_cbv.post_new),
     url(r'^cbv/list/$', views_cbv.post_list),
+    url(r'^cbv/(?P<pk>\d+)/edit/$', views_cbv.post_edit),
 ]
