@@ -17,6 +17,6 @@ urlpatterns = [
     # url(r'^cbv/excel/$', views_cbv.excel_download),
 
     url(r'^new/$', views.post_new),
-    url(r'^(?P<id>\d+)/$', views.post_detail),
+    url(r'^(?P<pk>\d+)/$', views.post_detail),
     url(r'^(?P<id>\d+)/edit/$', views.post_edit),
 ]
