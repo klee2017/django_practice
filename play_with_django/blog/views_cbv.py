@@ -3,9 +3,16 @@ from django.views.generic import CreateView, ListView, DetailView, UpdateView, D
 
 from .models import Post
 
+
+class PostListView(ListView):
+    model = Post
+    queryset = Post.objects.all().prefetch_related('tag_set', 'comment_set')
+    paginate_by = 20
+
+
 post_new = CreateView.as_view(model=Post)
 
-post_list = ListView.as_view(model=Post, paginate_by=20)
+post_list = PostListView.as_view()
 
 post_detail = DetailView.as_view(model=Post)
 
