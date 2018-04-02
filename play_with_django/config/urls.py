@@ -32,7 +32,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('blog.urls', namespace='blog')),
     url(r'^todo/', include('todo.urls', namespace='todo')),
-    url(r'^accounts/', include('accounts.urls', namespace='accounts')),
+    url(r'^accounts/', include('accounts.urls')),
+    url(r'^accounts/', include('allauth.urls')),
     url(r'^shop/', include('shop.urls', namespace='shop')),
 ]
 
